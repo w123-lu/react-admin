@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
-import logo from '../images/logo.png'
+import logo from './images/logo.png'
 import "./login.less";
 
 const Item = Form.Item
