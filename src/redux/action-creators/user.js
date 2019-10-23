@@ -1,15 +1,15 @@
-/*
+/* 
 操作登陆用户信息数据的action creator
 */
-import { reqLogin } from "../../api";
-import { message } from "antd";
-
+import { reqLogin } from '../../api'
+import { message } from 'antd'
 
 import { SAVE_USER_TOKEN, REMOVE_USER_TOKEN } from '../action-types'
-import { dispatch } from "../../../../../../AppData/Local/Microsoft/TypeScript/3.6/node_modules/rxjs/internal/observable/pairs";
 
-const saveUserToken = (user,token)=>({type: SAVE_USER_TOKEN, data: {user, token})
-
+/* 
+保存user和token的同步action creator
+*/
+const saveUserToken = (user, token) => ({type: SAVE_USER_TOKEN, data: {user, token}})
 
 export const removeUserToken = () => {
   // 清除local中的user和token
@@ -19,6 +19,9 @@ export const removeUserToken = () => {
   return {type: REMOVE_USER_TOKEN}
 }
 
+/* 
+用于登陆请求的异步action creator
+*/
 export function loginAsync(username, password) {
   // 返回一个异步action函数
   return async dispatch => {
