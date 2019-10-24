@@ -4,7 +4,6 @@
 import React, { Component } from 'react'
 import {Redirect} from 'react-router-dom'
 import { Form, Icon, Input, Button } from 'antd'
-import qs from 'qs'
 import { connect } from 'react-redux'
 
 import {loginAsync} from '../../redux/action-creators/user'
@@ -28,6 +27,8 @@ class Login extends Component {
     this.props.form.validateFields((err, values) => {
       if (!err) { // 验证成功
         const {username, password} = values
+        console.log(username, password);
+        
         console.log('发ajax请求', {username, password})
         this.props.loginAsync(username, password)    
       } else {
