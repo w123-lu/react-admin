@@ -29,34 +29,7 @@ class Login extends Component {
       if (!err) { // 验证成功
         const {username, password} = values
         console.log('发ajax请求', {username, password})
-
-        this.props.loginAsync(username, password)
-
-        // axios.post('/login', values)
-        // axios.post('/login', qs.stringify(values)) // username=admin&password=admin
-        // ajax.post('/login2', qs.stringify(values)) // username=admin&password=admin
-        /* ajax.post('/login', values) // username=admin&password=admin
-          .then(({user, token}) => {
-            console.log('登陆成功', user, token )
-          })
-          .catch(error => { // 就是mesage值
-            console.log(error)
-          }) */
-
-        /* ajax.post('/login', values) // username=admin&password=admin
-          .then((result) => {
-
-            const {status, data: {user, token}={}, msg, xxx='abc'} = result // 嵌套解构 变量默认值
-            console.log('xxx', xxx)
-            if (status===0) {
-              console.log('登陆成功', user, token )
-            } else {
-              console.log('登陆失败', msg)
-            }
-            
-          }) */
-
-          
+        this.props.loginAsync(username, password)    
       } else {
         // 什么都不用写
       }
@@ -181,43 +154,4 @@ class Login extends Component {
 export default Login
 
 
-
-/* 
-1. 高阶函数
-  定义: 如果函数接收的参数是函数或者返回值是函数
-  例子: Promise() / then() / 定时器 / 数组遍历相关方法 / bind() / $() / $.get() / Form.create()
-  好处: 更加动态, 更加具有扩展性
-
-2. 高阶组件
-  定义: 参数为组件，返回值为新组件的函数
-  例子: Form.create()(组件) / withRouter(组件) / connect()(组件)
-  与高阶函数的关系?  
-      高阶组件是一个特别的高阶函数
-      接收的是组件函数, 同时返回新的组件函数
-  作用:
-      React 中用于复用组件逻辑的一种高级技巧
-
-Form.create()(Login), 接收一个Form组件, 返回一个新组件
-  Form.create = function () {
-    const form = 创建一个强大form对象
-    return function (FormComponent) {
-      return class WrapComponent extends Component {
-        render () {
-          return <Login form={form}/>
-        }
-      }
-    }
-  }
-  const LoginWrap = Form.create()(Login)
-  // LoginWrap被注册成了路由
-*/
-
-
-
-
-/* 
-1. 收集输入数据
-2. 前台表单验证
-3. 提交登陆的ajax请求
-*/
 
