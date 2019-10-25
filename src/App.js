@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
 import Login from "./containers/login/login"
-import Admin from "./containers/admin/admin"
+import Admin from "./containers/admin"
 
 /*
 应用根组件
