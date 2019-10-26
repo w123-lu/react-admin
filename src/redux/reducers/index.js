@@ -4,9 +4,9 @@
 import { combineReducers } from "redux";
 
 import user from './user'
-import xxx from './xxx'
+import headerTitle from './header-title'
 
 export default combineReducers({
   user,
-  xxx
+  headerTitle,
 })
