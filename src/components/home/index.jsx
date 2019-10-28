@@ -10,6 +10,8 @@ export default class Home extends Component {
       <div>
        欢迎使用硅谷后台管理系统
       </div>
+      
+      
     )
   }
 }

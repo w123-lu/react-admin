@@ -13,7 +13,7 @@ export const reqLogin = ({username, password}) => ajax({
 } )
 
 
-
+/* 获取用户列表 */
 export const reqUsers = () => ajax({
   url: '/manage/user/list',
   method: 'GET',
@@ -39,5 +39,49 @@ return new Promise ((resolve,reject)=>{
 })
 }
 
-
+/* 
+获取所有分类的列表
+*/
 export const reqCategorys = () => ajax('/manage/category/list')
+
+/* 
+添加分类
+*/
+export const reqAddCategory = (categoryName) => ajax.post('/manage/category/add', {categoryName})
+
+/* 
+更新分类
+*/
+export const reqUpdateCategory = ({categoryId, categoryName}) => ajax({
+  url: '/manage/category/update',
+  method: 'POST',
+  data: {categoryId, categoryName}
+})
+
+/* 
+获取商品分页列表
+*/
+export const reqProducts =(pageNum, pageSize)=> ajax ({
+  url: '/manage/product/list',
+  params: {
+    pageNum,
+    pageSize
+  }
+})
+
+/* 
+搜索获取商品分页列表
+*/
+export const reqSearchProducts = ({
+  pageNum, 
+  pageSize, 
+  searchType, // 搜索类型名称  'productName' / 'productDesc'
+  searchName, // 搜索的关键字
+}) => ajax({
+  url: '/manage/product/search',
+  params: {
+    pageNum,
+    pageSize,
+    [searchType]: searchName // 参数名不是searchType, 而是这个变量的值
+  }
+})
