@@ -11,7 +11,11 @@ import logo from '../../../assets/images/logo.png'
 import './index.less'
 
 const {Item,SubMenu} = Menu
-@connect(state => ({headerTitle: state.headerTitle}), {setHeaderTitle})
+@connect(
+  state => ({
+    headerTitle: state.headerTitle
+  }), 
+  {setHeaderTitle})
 @withRouter  // LeftNav = withRouter(LeftNav)
 class LeftNav extends Component {
 
